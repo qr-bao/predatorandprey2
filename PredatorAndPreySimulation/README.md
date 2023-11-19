@@ -5,7 +5,7 @@ the original code is here: https://github.com/unknownblueguy6/PredatorAndPreySim
 
 
 
-I've added some new features:
+### I've added some new features:
 The vision of predators and prey is limited, and they can only see creatures within a certain angle and within a certain range.
 
 The predator's health not only decreases with the passage of time, he also decreases with the passage of time.
@@ -16,7 +16,7 @@ In order to make the model simple, the function that allows the prey to escape w
 
 
 
-New features I'm trying to add
+### New features I'm trying to add
 
 Standardize the code to create a matrix of surrounding biological information for each creature at each moment.
 

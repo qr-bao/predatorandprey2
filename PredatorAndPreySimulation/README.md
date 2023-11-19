@@ -5,7 +5,7 @@ the original code is here: https://github.com/unknownblueguy6/PredatorAndPreySim
 
 
 
-### I've added some new features:
+### I've added some features:
 The vision of predators and prey is limited, and they can only see creatures within a certain angle and within a certain range.
 
 The predator's health not only decreases with the passage of time, he also decreases with the passage of time.

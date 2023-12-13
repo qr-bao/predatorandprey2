@@ -23,24 +23,13 @@ class Predator(Creature):
         self.detectionOfPrey = detection
         self.attractionOfPrey = attraction
         self.velocity.scale_to_length(self.maxVelocity)
-        self.velocitydirection = pygame.math.Vector2(self.velocity)
 
-    def distanceinformation(self,preys,predators,foods):
-        FilteredPrey,predatorDistancePrey,predatorDistancePredator,predatorDistanceFood = utils.PreyFilterUsingEuclideanDistances1(self.velocitydirection,(self.rect.centerx,self.rect.centery) ,preys ,predators,foods,self.fieldRadius)
-        HearningL, HearningR = utils.Hearning((self.rect.centerx,self.rect.centery), predators,  foods, preys,self.fieldRadius)
-        return predatorDistancePrey,predatorDistancePredator,predatorDistanceFood,HearningL,HearningR
-    
+    def getTarget(self, CounterCreatures):
+        FilteredPrey = utils.PreyFilterUsingEuclideanDistances((self.rect.centerx,self.rect.centery) ,CounterCreatures ,self.fieldRadius)
+        return utils.PredictPredatorDirection((self.rect.centerx,self.rect.centery) ,FilteredPrey, self.attractionOfPrey)
 
-    def getTarget(self, preys,predators,foods):
-        if len(preys)==   0:
-            print("NO Prey")
-        FilteredPrey,predatorDistancePrey,predatorDistancePredator,predatorDistanceFood = utils.PreyFilterUsingEuclideanDistances1(self.velocitydirection,(self.rect.centerx,self.rect.centery) ,preys ,predators,foods,self.fieldRadius)
-        HearningL, HearningR = utils.Hearning((self.rect.centerx,self.rect.centery), predators,  foods, preys, self.fieldRadius)
-
-        return utils.PredictPredatorDirection((self.rect.centerx,self.rect.centery) ,FilteredPrey, self.attractionOfPrey,HearningL,HearningR)
-
-    def move(self, width, height, prey,predator,food):
-        targetVelocity = self.getTarget(prey,predator,food)
+    def move(self, width, height, CounterCreatures):
+        targetVelocity = self.getTarget(CounterCreatures)
 
         if targetVelocity.magnitude() != 0:
             targetVelocity.scale_to_length(self.maxVelocity)
@@ -49,7 +38,6 @@ class Predator(Creature):
                 steer.scale_to_length(constants.maxForce)
         
             self.velocity = self.velocity + steer
-            self.health -= 2.1 * steer.magnitude()
         
         super().move(width, height);
 

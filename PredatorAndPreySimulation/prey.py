@@ -27,19 +27,13 @@ class Prey(Creature):
         self.detectionOfPredator = detectionOfPredator
         self.repulsionToPredator = repulsionToPredator
         self.velocity.scale_to_length(self.maxVelocity)
-        self.velocitydirection = pygame.math.Vector2(self.velocity)
-    def distanceinformation(self,couterCreatures,Foods,prey):
-        predatorDistance,preyDistance,FoodDistance = utils.FoodAndPredatorFilterUsingEuclideanDistances(self.velocitydirection,(self.rect.centerx,self.rect.centery), couterCreatures, Foods, prey,self.fieldRadius)
-        HearningL, HearningR = utils.Hearning((self.rect.centerx,self.rect.centery), CounterCreatures, Food,  self.fieldRadius)
 
-        return predatorDistance,preyDistance,FoodDistance,HearningL,HearningR
-    def getTarget(self, CounterCreatures, Food,prey):
-        FilteredFood, FilteredPredators,predatorDistance,preyDistance,FoodDistance = utils.FoodAndPredatorFilterUsingEuclideanDistances(self.velocitydirection,(self.rect.centerx,self.rect.centery), CounterCreatures, Food, prey,self.fieldRadius)
-        HearningL, HearningR = utils.Hearning((self.rect.centerx,self.rect.centery), CounterCreatures, Food, prey, self.fieldRadius)
-        return utils.PredictPreyDirection((self.rect.centerx,self.rect.centery), FilteredPredators, FilteredFood, self.attractionToFood, self.repulsionToPredator,HearningL,HearningR)
+    def getTarget(self, CounterCreatures, Food):
+        FilteredFood, FilteredPredators = utils.FoodAndPredatorFilterUsingEuclideanDistances((self.rect.centerx,self.rect.centery), CounterCreatures, Food, self.fieldRadius)
+        return utils.PredictPreyDirection((self.rect.centerx,self.rect.centery), FilteredPredators, FilteredFood, self.attractionToFood, self.repulsionToPredator)
 
-    def move(self, width, height, CounterCreatures, Food,prey):
-        targetVelocity = self.getTarget(CounterCreatures, Food,prey)
+    def move(self, width, height, CounterCreatures, Food):
+        targetVelocity = self.getTarget(CounterCreatures, Food)
 
         if targetVelocity.magnitude() != 0:
             targetVelocity.scale_to_length(self.maxVelocity)

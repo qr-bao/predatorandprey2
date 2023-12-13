@@ -10,7 +10,7 @@ import random
 # size         => size of creature
 
 class Creature:
-    def __init__(self, maxHealth, fieldRadius, maxVelocity, position, velocity, color, size):
+    def __init__(self,maxHealth,fieldRadius, maxVelocity, position, velocity, color, size):    
         self.color = color
         self.size = size
         self.points = [(size/2, 0), (size, size), (0, size)]
@@ -23,9 +23,6 @@ class Creature:
         self.maxVelocity = maxVelocity
         self.velocity = pygame.math.Vector2(velocity)
         self.alive = True
-
-    def draw(self, surface):
-        surface.blit(self.surface, self.rect)
     
     def dead(self):
         self.alive = False
@@ -49,9 +46,9 @@ class Creature:
             if self.rect.bottom >= height:
                 self.rect.bottom = height
     
-    # def draw(self, surface):
-    #     if(self.alive):
-    #         pygame.draw.rect(surface, self.color, self.rect)
+    def draw(self, surface):
+        if(self.alive):
+            pygame.draw.rect(surface, self.color, self.rect)
     
     def showFieldofView(self):
         pass
@@ -63,3 +60,4 @@ class Creature:
             print(f"The {name}'s max health is {self.maxHealth}")
             print(f"The {name}'s field of view is from ({self.x},{self.y}) to a radius of {self.fieldRadius}")
             print(f"The {name}'s max velocity is {self.maxVelocity}")
+     

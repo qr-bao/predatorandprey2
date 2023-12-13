@@ -10,7 +10,7 @@ The vision of predators and prey is limited, and they can only see creatures wit
 
 Predators and prey have hearing. They can know whether there is a creature moving nearby, but it is not clear whether it is a predator or a predator and their specific location. They can remember the five nearest creatures.
 
-The predator's health not only decreases with the passage of time, he also decreases with the passage of time.
+The predator's health not only decreases with the passage of time, he also decreases with the size of the movement acceleration.
 
 It falls as the predator moves, and the faster the predator moves, the faster it falls. In order to better simulate energy consumption and ecological balance. The original health consumption parameters have been modified.
 
@@ -20,9 +20,9 @@ In order to make the model simple, the function that allows the prey to escape w
 
 ### New features I'm trying to add
 
-Standardize the code to create a matrix of surrounding biological information for each creature at each moment.
+Standardize the code to create a matrix of surrounding biological information for each creature at each moment.            (finished)
 
-Use reinforcement learning to play a game and plot the number and energy of creatures over time for Prey and Predator.
+Use reinforcement learning to play a game and plot the number and energy of creatures over time for Prey and Predator.     (part finished)
 
-Change the map, add obstacles to the map, and continue playing the game using reinforcement learning
+Change the map, add obstacles to the map, and continue playing the game using reinforcement learning                       (Have not started)
 

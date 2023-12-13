@@ -1,28 +1,34 @@
-
-this is a homework about predator and prey, I refer to “PredatorAndPreySimulation
-Public” project‘s work
-the original code is here: https://github.com/unknownblueguy6/PredatorAndPreySimulation
+# PredatorAndPreySimulation
+Simulating Evolution of Predator and Prey using Genetic Algorithms
 
 
+# TODO
+1. ~~Create Creature class~~
+2. ~~Create Predator, Prey from Creatures~~
+3. ~~Create Food class~~
+4. ~~Add generation of Food supply to Simulator~~
+4. ~~Generate Predator population in Simulator~~
+4. ~~Generate Prey population in Simulator~~
+5. ~~Add movement functions to Predator~~
+6. ~~Add movement functions to Prey~~
+7. ~~Detecttion of Prey/Predator/Food~~
+8. ~~Choosing a direction in accordance to the detection~~
+9. ~~Attraction to Prey/Preadtor/Food~~
+10. ~~Choosing a direction in accordance to the attraction measures~~
+11. ~~Apply net force on an entity~~
+12. ~~Genetic Algorithm for breeding~~
+13. ~~A net result for all weights and biases used for net force~~
+14. Conculsive report
+15. Graph data
 
-### I've added some features:
-The vision of predators and prey is limited, and they can only see creatures within a certain angle and within a certain range.
 
-Predators and prey have hearing. They can know whether there is a creature moving nearby, but it is not clear whether it is a predator or a predator and their specific location. They can remember the five nearest creatures.
+## Bonus : 
+1. Addition of Water Bodies
+2. Adding Hiding spots
+3. Control Panel for various optional features such as enabling/disabling field of view
+4. Cross species effects (ones attraction effects the other)
 
-The predator's health not only decreases with the passage of time, he also decreases with the passage of time.
-
-It falls as the predator moves, and the faster the predator moves, the faster it falls. In order to better simulate energy consumption and ecological balance. The original health consumption parameters have been modified.
-
-In order to make the model simple, the function that allows the prey to escape when the predator catches the prey is deleted.
-
-
-
-### New features I'm trying to add
-
-Standardize the code to create a matrix of surrounding biological information for each creature at each moment.
-
-Use reinforcement learning to play a game and plot the number and energy of creatures over time for Prey and Predator.
-
-Change the map, add obstacles to the map, and continue playing the game using reinforcement learning
-
+## Branches : 
+1. Main
+2. Submission
+3. Results and End Conclusion

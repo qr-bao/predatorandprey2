@@ -86,9 +86,9 @@ class Simulator:
     def moveModels(self):
         self.surface.fill((0, 0, 0))
         for i in range(len(self.predators)):
-            self.predators[i].move(WIDTH, HEIGHT, self.prey)
+            self.predators[i].move(WIDTH, HEIGHT, self.prey,self.predators, self.food)
         for i in range(len(self.prey)):
-            self.prey[i].move(WIDTH, HEIGHT, self.predators, self.food)
+            self.prey[i].move(WIDTH, HEIGHT, self.predators, self.food,self.prey)
 
     def update(self):
         pygame.display.update()
@@ -121,7 +121,7 @@ class Simulator:
             p = self.predators[j]
             for i in range(len(self.prey)-1, -1, -1):
                 if p.rect.colliderect(self.prey[i].rect):
-                    chance = random.random()
+                    """chance = random.random()
                     if chance > CHANCE_OF_ESCAPE:
                         self.prey[i].dead()
                         del self.prey[i]
@@ -130,8 +130,11 @@ class Simulator:
                     else:
                         self.prey[i].health -= prey.HEALTH_LOSS / 2
                         self.predators[j].health += predator.HEALTH_GAIN / 2
-                        self.predators[j].health = min(self.predators[j].health, self.predators[j].maxHealth)
-
+                        self.predators[j].health = min(self.predators[j].health, self.predators[j].maxHealth)"""
+                    self.prey[i].dead()
+                    del self.prey[i]
+                    self.predators[j].health += predator.HEALTH_GAIN
+                    self.predators[j].health = min(self.predators[j].health, self.predators[j].maxHealth)
     
     def decreaseHealth(self):
         for i in range(len(self.predators)):
